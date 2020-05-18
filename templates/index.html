@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    {% if user.is_authenticated %}
+    Welcome {{ user }}!
+    <a href="{% url 'logout' %}"><button type="button">LOG OUT</button></a>
+    {% else %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="web-form">
+            <h3>Sign up with</h3>
+            <a href="{% url 'social:begin' 'facebook' %}"><img src="{% static 'img/facebook.png' %}"></a> /
+            <a href="{% url 'social:begin' 'google-oauth2' %}"><img src="{% static 'img/google.png' %}"></a>
+            <p>or</p>
+            <form action="" method="POST">
+                <div class="fields">
+                    {{ form.last_name.label }}
+                    {{ form.last_name }}
+                    {{ form.first_name.label}}
+                    {{ form.first_name }}
+                    <label for="id_username">Email</label>
+                    {{ form.username }}
+                    {{ form.password1.label }}
+                    {{ form.password1 }}
+                    {{ form.password2.label }}
+                    {{ form.password2}}
+                    <br>
+                    {{ form.errors }}
+                    <input type="submit" value="Register">
+                </div>
+                <br>
+                Already have an account? <a href="{% url 'login' %}"><button type="button">LOG IN</button></a>
+        </div>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

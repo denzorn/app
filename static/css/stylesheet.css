@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+    font-family: Roboto;
+    background-image: url('/static/img/bg.jpg');
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.web-form {
+    border: 1px solid black;
+    padding: 30px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: #000000 4px 4px 8px 2px;
+    background: #fff;
+
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+}
+a img {
+    width: 180px;
+}
